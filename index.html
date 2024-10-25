@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhavya Play School</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hover-shadow:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .slider {
+            display: flex;
+            width: 300%;
+            animation: slide 10s infinite;
+        }
+
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        .slide {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+        
+        #preloader{
+            background:#000 url(images/loader.gif) no-repeat center center;
+            background-size: 15%;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            z-index:100;
+            opacity: 80%;
+        }
+
+    </style>
+    
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<div id="preloader"></div>
+
+    <!-- Navbar -->
+    <nav class="bg-yellow-500 p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo and School Name -->
+            <div class="flex items-center">
+                <img src="images/logo.png" alt="logo" class="h-10 w-10 mr-2">
+                <a href="#" class="text-2xl font-semibold">Bhavya Play School</a>
+            </div>
+
+            <!-- Hamburger Menu Button (Hidden on large screens) -->
+            <div class="lg:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul id="menu" class="hidden lg:flex space-x-10 text-center lg:space-x-10">
+                <li><a href="playschool.html" class="hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Home</a></li>
+                <li><a href="facilities.html" target="_blank" class="hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Facilities</a></li>
+                <li><a href="aboutus.html" target="_blank" class="hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">About Us</a></li>
+                <li><a href="ourprogram.html" target="_blank" class="hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Programs</a></li>
+                <li><a href="contactus.html" target="_blank" class="hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Dropdown Menu (Visible on small screens) -->
+        <ul id="mobile-menu" class="lg:hidden hidden flex-col mt-4 space-y-4 text-center">
+            <li><a href="playschool.html" class=" hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Home</a></li>
+            <li><a href="facilities.html" target="_blank" class=" hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Facilities</a></li>
+            <li><a href="aboutus.html" target="_blank" class=" hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">About Us</a></li>
+            <li><a href="ourprogram.html" target="_blank" class=" hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Programs</a></li>
+            <li><a href="contactus.html" target="_blank" class=" hover:text-white rounded-xl text-2xl block hover-shadow transition duration-300">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- JavaScript for Menu Toggle -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+ 
+<!-- 
+Button with continuous transition effect --> 
+<button class="fixed bottom-4 right-4 px-4 py-2 bg-yellow-500 text-white rounded-lg shadow-md hover:shadow-xl transition-all duration-500 ease-in-out transform hover:scale-105 z-20 border-r-2">
+    <a href="contactus.html" target="_blank" class="inline-block">Admission Enquiry &#128222;</a>
+</button>
+
+    <!-- Hero Section with Image Slider -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-4 text-yellow-600 ">Welcome to Bhavya Play School</h1>
+            <p class="text-lg font-bold text-gray-600 mb-8 ">A branch of My Chota School, nurturing young minds with love and care.</p>
+
+            <!-- Images of Children -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <img src="./images/img1.jpeg" alt="Children Playing" class="rounded-lg shadow-md hover-shadow transition duration-300 w-full h-auto object-cover">
+                <img src="./images/image2.jpeg" alt="Learning Time" class="rounded-lg shadow-md hover-shadow transition duration-300 w-full h-auto object-cover">
+                <img src="./images/image3.jpeg" alt="Fun Activities" class="rounded-lg shadow-md hover-shadow transition duration-300 w-full h-auto object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-16 bg-yellow-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-yellow-700 mb-4">About Bhavya Play School</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">At Bhavya Play School, we believe in providing a nurturing and engaging environment for young children. As a branch of My Chota School, we follow a holistic approach to early childhood education that focuses on the overall development of the child.</p>
+        </div>
+    </section>
+
+    <!-- Our Mission and Vision -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row md:space-x-8 text-center md:text-left">
+                <div class="w-full md:w-1/2 mb-8 md:mb-0">
+                    <h2 class="text-3xl font-semibold text-yellow-700 mb-4">Our Mission</h2>
+                    <p class="text-gray-700">Our mission is to foster holistic development in children by creating an environment that nurtures their physical, emotional, intellectual, and social growth. We aim to cultivate a love for learning in every child, laying a strong foundation for their future education.</p>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-3xl font-semibold text-yellow-700 mb-4">Our Vision</h2>
+                    <p class="text-gray-700">Our vision is to be a leader in early childhood education, recognized for our commitment to excellence and innovation. We aspire to shape confident, independent, and compassionate individuals who are prepared to succeed in a rapidly changing world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Facilities Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold text-yellow-600 mb-8">Our School Facilities</h1>
+            <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">At Bhavya Play School, we pride ourselves on providing an engaging and supportive environment for our students. Here’s a closer look at the facilities that make our campus special.</p>
+
+            <!-- Facilities Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Facility 1: Classrooms -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md hover-shadow transition transform duration-300 text-center">
+                    <img src="./images/classroom.jpeg" alt="Classrooms" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-2">Classrooms</h3><hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <p class="text-gray-700">Our well-equipped classrooms provide a comfortable and stimulating learning environment where children can explore and grow.</p>
+                </div>
+
+                <!-- Facility 2: Transport -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md hover-shadow transition transform duration-300 text-center">
+                    <img src="./images/transport.jpeg" alt="Transport" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-2">Transport</h3><hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <p class="text-gray-700">We provide safe and reliable transportation options to ensure that your child has a smooth journey to and from school.</p>
+                </div>
+
+                <!-- Facility 3: Playing Area -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md hover-shadow transition transform duration-300 text-center">
+                    <img src="./images/playground.jpeg" alt="Playing Area" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-2">Playing Area</h3><hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <p class="text-gray-700">Our spacious playing area is designed to encourage physical activity and creative play, helping children develop their motor skills and social interactions.</p>
+                </div>
+
+                <!-- Facility 4: Healthy Food -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md hover-shadow transition transform duration-300 text-center">
+                    <img src="./images/food.jpeg" alt="Healthy Food" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover">
+                    <h3 class="text-xl font-semibold text-yellow-600 mb-2">Healthy Food</h3><hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+                    <p class="text-gray-700">We offer nutritious meals that are carefully prepared to support the health and well-being of our students, ensuring they stay energized throughout the day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- Core Values Section -->
+    <section class="py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-yellow-700 mb-8">Our Core Values</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-yellow-600">Love & Care</h3>
+                    <p class="text-gray-600">We provide a nurturing environment where children feel loved, valued, and safe.</p>
+                </div>
+                <!-- Value 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-yellow-600">Creativity</h3>
+                    <p class="text-gray-600">We encourage creative expression and exploration through diverse activities and play.</p>
+                </div>
+                <!-- Value 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-4 text-yellow-600">Respect</h3>
+                    <p class="text-gray-600">We foster an environment of respect for others, the environment, and oneself.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-yellow-700 mb-8">Meet Our Staff</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <img src="./images/principle.jpeg" alt="Principal" class="w-32 h-32 mx-auto rounded-full mb-4">
+                    <h3 class="text-2xl font-semibold text-yellow-600 mb-2">Mr. Neeraj Attri</h3>
+                    <p class="text-gray-600">Principal</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <img src="./images/pooja.jpeg" alt="Teacher 1" class="w-32 h-32 mx-auto rounded-full mb-4">
+                    <h3 class="text-2xl font-semibold text-yellow-600 mb-2">Ms. Pooja</h3>
+                    <p class="text-gray-600">Nursery Teacher</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <img src=".\images\priyanka.jpeg" alt="Teacher 2" class="w-32 h-32 mx-auto rounded-full mb-4">
+                    <h3 class="text-2xl font-semibold text-yellow-600 mb-2">Ms. Geeta </h3>
+                    <p class="text-gray-600">Kindergarten Teacher</p>
+                </div>
+            </div>
+        </div>
+     <!-- Programs Section -->
+     <section class="bg-white py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold text-yellow-600 mb-8">Explore Our Programs</h1>
+            <p class="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">At Bhavya Play School, we offer a variety of programs designed to cater to the different needs and developmental stages of young children. Each program is crafted to promote holistic growth through fun, interactive, and educational activities.</p>
+            
+            <!-- Program Offerings -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <img src="./images/playgroup.jpeg" alt="Playgroup" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h2 class="text-2xl font-semibold text-yellow-600 mb-4">Playgroup</h2>
+                    <p class="text-gray-700">Our Playgroup program is designed for children aged 2 to 3 years. We focus on socialization, motor skills, and early language development through engaging activities.</p>
+                </div>
+                <!-- Program 2 -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <img src="./images/nursery.jpeg" alt="Nursery" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h2 class="text-2xl font-semibold text-yellow-600 mb-4">Nursery</h2>
+                    <p class="text-gray-700">Our Nursery program caters to children aged 3 to 4 years. It focuses on building foundational skills in literacy, numeracy, and creative arts through play-based learning.</p>
+                </div>
+                <!-- Program 3 -->
+                <div class="bg-gray-100 p-8 rounded-lg shadow-md hover-shadow transition transform duration-300">
+                    <img src="./images/kindergarten.jpeg" alt="Kindergarten" class="w-full h-48 object-cover mb-4 rounded-lg">
+                    <h2 class="text-2xl font-semibold text-yellow-600 mb-4">Kindergarten</h2>
+                    <p class="text-gray-700">Our Kindergarten program is for children aged 4 to 6 years. It prepares children for formal schooling by focusing on comprehensive development across cognitive, emotional, and social areas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Contact section-->
+
+    <body class="bg-gray-100 text-gray-800">
+
+    
+        <!-- Contact Us Section -->
+        <section class="bg-white py-16">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl font-bold text-yellow-600">Contact Us</h1>
+                    <p class="text-lg text-gray-600 mt-4">We'd love to hear from you! Please reach out with any questions or feedback.</p>
+                </div>
+    
+                <div class="flex flex-col md:flex-row md:space-x-8">
+                    <!-- Contact Form -->
+                     
+                    <div class="w-full md:w-1/2">
+                        <form action="#" method="POST" class="bg-gray-100 p-8 rounded-lg shadow-md">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="5" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-yellow-600 transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+    <!-- Contact Information -->
+    <div class="w-full md:w-1/2">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-6">Our Location</h2>
+        <p class="text-gray-600 mb-6">We are located at Bhavya Play School, Vill. -Jalhaka P.O - Amarpur, PALWAL, HARYANA, India. Feel free to visit us or reach out through the contact information provided below.</p>
+        <ul class="space-y-4 text-gray-600 mb-8">
+            <li><strong>Phone:</strong> +91 9350552699</li>
+            <li><strong>Email:</strong> info@bhavyaplayschool.com</li>
+            <li><strong>Address:</strong> Vill. - Jalhaka P.O - Amarpur, PALWAL, HARYANA, India</li>
+        </ul>
+        <div class="mt-8">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3515.942803038703!2d77.43503387427529!3d28.209050303187606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ccfe047c7ae3d%3A0xf7a22e7115f64b3f!2sBhavy%20Play%20school!5e0!3m2!1sen!2sin!4v1724331864336!5m2!1sen!2sin" width="100%" autoplay muted height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-green-500 text-white py-6">
+<div class="container mx-auto text-center">
+<p>&copy; 2024 Bhavya Play School. A branch of My Chota School. All rights reserved.</p>
+</div>
+</footer>
+
+<footer class="bg-yellow-500 text-white py-6">
+<div class="container mx-auto text-center">
+<p>Made By <a href="https://www.greatertechhub.com" target="_blank" class="underline">GreaterTechHub</a></p>
+</div>
+</footer>
+<script>
+    var loader = document.getElementById("preloader");
+
+    window.addEventListener("load",function(){
+        loader.style.display = "none";
+    }
+)
+</script>
+<video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video>
+
+<video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video><video src="PRADA_-_JASS_MANAK_(Official_Video)_Satti_Dhillon___Latest_Punjabi_Song_2018 - Copy.mp4" height="50%" width="100%" autoplay muted></video>
+
+</body>
+
+</html>
